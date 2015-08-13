@@ -1,0 +1,6 @@
+# deepy version: 0.1.8
+[2015/08/13 17:53:01] valid   (iter=1) J=13.29 err=100.00 approx_PPL=10000.71 *
+[2015/08/13 18:46:29] monitor (iter=1) J=7.81 err=81.62 approx_PPL=262.03
+[2015/08/13 18:47:53] valid   (iter=2) J=7.38 err=79.83 approx_PPL=178.78 *
+[2015/08/13 19:39:35] monitor (iter=2) J=7.10 err=77.92 approx_PPL=146.91
+[2015/08/13 19:40:55] valid   (iter=3) J=7.00 err=77.00 approx_PPL=137.30 *
