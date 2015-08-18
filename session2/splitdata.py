@@ -37,7 +37,7 @@ def split(basepath, srcfile, trgfile, trainport, validport):
     testtrg.close()
 
 if __name__ == "__main__":
-    basepath = '/home/tangyaohua/dl4mt/data/large.corpus'
+    basepath = '/home/tangyaohua/dl4mt/data/larger.corpus/'
     srcfile = 'english'
     trgfile = 'chinese'
     split(basepath, srcfile, trgfile, 0.8, 0.1)
