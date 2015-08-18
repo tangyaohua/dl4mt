@@ -2,7 +2,7 @@ import numpy
 
 # from nmt import train
 # from nmtlm import train
-from nmtlv import train
+from nmt import train
 
 def main(job_id, params):
     print params

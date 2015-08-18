@@ -37,9 +37,9 @@ def load_datagivendict(dictpath, small=True, char_based=False, batch_size=20, vo
 
     valid_path = os.path.join(resource_dir, "validtrg")
     if small:
-        train_path = os.path.join(resource_dir, "validtrain")
+        train_path = os.path.join(resource_dir, "traintrg")
     else:
-        train_path = os.path.join(resource_dir, "ptb.train.txt")
+        train_path = os.path.join(resource_dir, "traintrg")
 
     lmdata = LMDataset(vocab, train_path, valid_path, history_len=-1, char_based=char_based, max_tokens=max_tokens)
     batch = BunchSequences(lmdata, batch_size=batch_size, fragment_length=history_len)

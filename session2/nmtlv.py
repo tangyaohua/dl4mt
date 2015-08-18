@@ -899,7 +899,7 @@ def train(dim_word=100, # word vector dimensionality
                 if _p('ff_logit','W') in kk:
                     sub_params[kk] = tparams[kk][:,temp_vocab]
                 elif _p('ff_logit','b') in kk:
-                    sub_params[kk] = tparams[kk][:,temp_vocab]
+                    sub_params[kk] = tparams[kk][temp_vocab]
                 else:
                     sub_params[kk] = tparams[kk]
 

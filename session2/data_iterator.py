@@ -47,7 +47,7 @@ class TextIterator:
                 ss = self.source.readline()
                 if ss == "":
                     raise IOError
-                ss = wordpunct_tokenize(ss.decode('utf-8').strip())
+                ss = wordpunct_tokenize(ss.strip())
                 ss = [self.source_dict[w] if w in self.source_dict else 1 for w in ss]
                 if self.n_words_source > 0:
                     ss = [w if w < self.n_words_source else 1 for w in ss]
@@ -55,7 +55,7 @@ class TextIterator:
                 tt = self.target.readline()
                 if tt == "":
                     raise IOError
-                tt = wordpunct_tokenize(tt.decode('utf-8').strip())
+                tt = wordpunct_tokenize(tt.strip())
                 tt = [self.target_dict[w] if w in self.target_dict else 1 for w in tt]
                 if self.n_words_target > 0:
                     tt = [w if w < self.n_words_target else 1 for w in tt]
