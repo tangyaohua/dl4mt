@@ -1,6 +1,26 @@
 # deepy version: 0.1.8
-[2015/08/13 17:53:01] valid   (iter=1) J=13.29 err=100.00 approx_PPL=10000.71 *
-[2015/08/13 18:46:29] monitor (iter=1) J=7.81 err=81.62 approx_PPL=262.03
-[2015/08/13 18:47:53] valid   (iter=2) J=7.38 err=79.83 approx_PPL=178.78 *
-[2015/08/13 19:39:35] monitor (iter=2) J=7.10 err=77.92 approx_PPL=146.91
-[2015/08/13 19:40:55] valid   (iter=3) J=7.00 err=77.00 approx_PPL=137.30 *
+[2015/08/14 09:50:12] valid   (iter=1) J=13.29 err=100.00 approx_PPL=10000.71 *
+[2015/08/14 10:36:07] monitor (iter=1) J=7.81 err=81.63 approx_PPL=262.03
+[2015/08/14 10:37:12] valid   (iter=2) J=7.37 err=79.82 approx_PPL=178.70 *
+[2015/08/14 11:21:03] monitor (iter=2) J=7.10 err=77.92 approx_PPL=146.91
+[2015/08/14 11:22:04] valid   (iter=3) J=7.00 err=76.99 approx_PPL=137.27 *
+[2015/08/14 12:04:07] monitor (iter=3) J=6.84 err=76.49 approx_PPL=122.55
+[2015/08/14 12:05:08] valid   (iter=4) J=6.90 err=77.22 approx_PPL=128.31 *
+[2015/08/14 12:47:09] monitor (iter=4) J=6.67 err=75.63 approx_PPL=109.23
+[2015/08/14 12:48:10] valid   (iter=5) J=6.74 err=75.87 approx_PPL=114.77 *
+[2015/08/14 13:30:09] monitor (iter=5) J=6.55 err=74.95 approx_PPL=100.41
+[2015/08/14 13:31:10] valid   (iter=6) J=6.67 err=75.43 approx_PPL=109.26 *
+[2015/08/14 14:13:10] monitor (iter=6) J=6.46 err=74.46 approx_PPL=94.10
+[2015/08/14 14:14:11] valid   (iter=7) J=6.60 err=75.13 approx_PPL=104.33 *
+[2015/08/14 14:56:06] monitor (iter=7) J=6.38 err=74.03 approx_PPL=88.99
+[2015/08/14 14:57:08] valid   (iter=8) J=6.57 err=75.27 approx_PPL=102.61 *
+[2015/08/14 15:39:05] monitor (iter=8) J=6.31 err=73.71 approx_PPL=85.08
+[2015/08/14 15:40:06] valid   (iter=9) J=6.55 err=75.24 approx_PPL=101.46 *
+[2015/08/14 16:22:08] monitor (iter=9) J=6.26 err=73.40 approx_PPL=81.55
+[2015/08/14 16:23:09] valid   (iter=10) J=6.54 err=74.60 approx_PPL=100.51 *
+[2015/08/14 17:05:08] monitor (iter=10) J=6.21 err=73.11 approx_PPL=78.79
+[2015/08/14 17:06:09] valid   (iter=11) J=6.48 err=74.19 approx_PPL=96.63 *
+[2015/08/14 17:48:09] monitor (iter=11) J=6.16 err=72.90 approx_PPL=76.37
+[2015/08/14 17:49:11] valid   (iter=12) J=6.47 err=74.05 approx_PPL=95.69 *
+[2015/08/14 18:31:09] monitor (iter=12) J=6.12 err=72.66 approx_PPL=74.15
+[2015/08/14 18:32:10] valid   (iter=13) J=6.44 err=73.91 approx_PPL=93.63 *

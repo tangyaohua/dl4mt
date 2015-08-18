@@ -12,7 +12,7 @@ def main():
         word_freqs = OrderedDict()
         with open(filename, 'r') as f:
             for line in f:
-                words_in = line.strip().split(' ')
+                words_in = line.decode('utf-8').strip().split(' ')
                 for w in words_in:
                     if w not in word_freqs:
                         word_freqs[w] = 0

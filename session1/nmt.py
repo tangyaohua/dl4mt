@@ -555,7 +555,7 @@ def gen_sample(tparams, f_init, f_next, x, options, trng=None, k=1, maxlen=30,
 
     ret = f_init(x)
     next_state, ctx0 = ret[0], ret[1]
-    next_w = -1
+    next_w = -1 * numpy.ones((1,)).astype('int64')
 
     for ii in xrange(maxlen):
         ctx = numpy.tile(ctx0, [live_k, 1])
@@ -750,14 +750,14 @@ def train(dim_word=100, # word vector dimensionality
           encoder='gru',
           decoder='gru_cond_simple',
           patience=10,
-          max_epochs=5000,
+          max_epochs=10,
           dispFreq=100,
           decay_c=0., 
           alpha_c=0., 
           diag_c=0.,
           lrate=0.01, 
-          n_words_src=100000,
-          n_words=100000,
+          n_words_src=10000,
+          n_words=10000,
           maxlen=100, # maximum length of the description
           optimizer='rmsprop', 
           batch_size = 16,
@@ -766,12 +766,12 @@ def train(dim_word=100, # word vector dimensionality
           validFreq=1000,
           saveFreq=1000, # save the parameters after every saveFreq updates
           sampleFreq=100, # generate some samples after every sampleFreq updates
-          datasets=['/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/data/binarized_text.xinhua_u8.en.shuf.h5',
-                    '/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/data/binarized_text.xinhua_u8.ch.shuf.h5'],
-          valid_datasets=['/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/data/binarized_text.xinhua_u8.en.shuf.h5',
-                          '/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/data/binarized_text.xinhua_u8.ch.shuf.h5'],
-          dictionaries=['/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/data/vocab.xinhua_u8.en.pkl',
-                        '/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/data/vocab.xinhua_u8.ch.pkl'],
+          datasets=['/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/data/xinhua_u8.en',
+                    '/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/data/xinhua_u8.ch'],
+          valid_datasets=['/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/data/xinhua_u8.en',
+                          '/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/data/xinhua_u8.ch'],
+          dictionaries=['/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/data/vocab.english.pkl',
+                        '/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/data/vocab.chinese.pkl'],
           use_dropout=False,
           reload_=False):
 

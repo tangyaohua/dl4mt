@@ -6,7 +6,7 @@ from nltk.tokenize import wordpunct_tokenize
 class TextIterator:
     def __init__(self, source, target, 
                  source_dict, target_dict, 
-                 batch_size=128, 
+                 batch_size=16,
                  maxlen=100,
                  n_words_source=-1,
                  n_words_target=-1):
@@ -60,21 +60,25 @@ class TextIterator:
                 if self.n_words_target > 0:
                     tt = [w if w < self.n_words_target else 1 for w in tt]
 
-                if len(ss) > self.maxlen and len(tt) > self.maxlen:
+                if len(ss) > self.maxlen or len(tt) > self.maxlen:
                     continue
 
                 source.append(ss)
                 target.append(tt)
 
-                if len(source) >= self.batch_size or len(target) >= self.batch_size:
+                if len(source) > self.batch_size or len(target) > self.batch_size:
                     break
         except IOError:
             self.end_of_data = True
 
-        if len(source) <= 0 or len(target) <= 0:
+        if len(source) < self.batch_size or len(target) < self.batch_size:
+            print 'too little sentences'
             self.end_of_data = False
             self.reset()
             raise StopIteration
+
+        # if len(source) < self.batch_size or len(target) < self.batch_size:
+        #     self.end_of_data = True
 
         return source, target
 

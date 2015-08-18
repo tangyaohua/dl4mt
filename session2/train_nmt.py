@@ -1,6 +1,8 @@
 import numpy
 
-from nmt import train
+# from nmt import train
+# from nmtlm import train
+from nmtrlm import train
 
 def main(job_id, params):
     print params
@@ -15,8 +17,8 @@ def main(job_id, params):
                                         lrate=params['learning-rate'][0],
                                         optimizer=params['optimizer'][0], 
                                         maxlen=50,
-                                        batch_size=32,
-                                        valid_batch_size=32,
+                                        batch_size=16,
+                                        valid_batch_size=16,
                                         validFreq=5000,
                                         dispFreq=10,
                                         saveFreq=5000,
@@ -29,7 +31,7 @@ if __name__ == '__main__':
         'model': ['model.npz'],
         'dim_word': [384],
         'dim': [512],
-        'n-words': [10000],
+        'n-words': [10001],
         'optimizer': ['adam'],
         'decay-c': [0.], 
         'clip-c': [10.], 

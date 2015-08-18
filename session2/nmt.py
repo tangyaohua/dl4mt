@@ -20,11 +20,6 @@ from sklearn.cross_validation import KFold
 
 from data_iterator import TextIterator
 
-from lm.lm import NeuralLM
-from lm.deepy.layers import LSTM
-from lm.layers import FullOutputLayer
-
-
 profile = False
 
 
@@ -460,10 +455,7 @@ def init_params(options):
     params = get_layer('ff')[0](options, params, prefix='ff_logit_ctx', 
                                 nin=ctxdim, nout=options['dim_word'], 
                                 ortho=False)
-    params = get_layer('ff')[0](options, params, prefix='ff_logit_lm',
-                                nin=options['lmdim'], nout=options['dim_word'],
-                                ortho=False)
-    params = get_layer('ff')[0](options, params, prefix='ff_logit',
+    params = get_layer('ff')[0](options, params, prefix='ff_logit', 
                                 nin=options['dim_word'], nout=options['n_words'])
 
     return params
@@ -478,7 +470,7 @@ def build_model(tparams, options):
     # description string: #words x #samples
     x = tensor.matrix('x', dtype='int64')
     x_mask = tensor.matrix('x_mask', dtype='float32')
-    y = tensor.matrix('y', dtype='int64', )
+    y = tensor.matrix('y', dtype='int64')
     y_mask = tensor.matrix('y_mask', dtype='float32')
 
     xr = x[::-1]
@@ -487,27 +479,6 @@ def build_model(tparams, options):
     n_timesteps = x.shape[0]
     n_timesteps_trg = y.shape[0]
     n_samples = x.shape[1]
-    # (maxlen_x, n_samples)
-    # shares=n_timesteps_trg/options['history_len']
-
-    # lmy=y.dimshuffle(1,0).reshape([shares, n_samples, options['history_len']])
-    lmy=y.dimshuffle((1,0))
-    inputx=tensor.imatrix('x')
-    lmmodel = NeuralLM(options['n_words'], test_data=None, input_tensor=inputx)
-    lmmodel.stack(LSTM(hidden_size=options['lmdim'], output_type="sequence",
-                    persistent_state=True, batch_size=options['batch_size'],
-                    reset_state_for_input=0),
-                FullOutputLayer(options['n_words']))
-
-    hiddenoutput =lmmodel._hidden_outputs[1].dimshuffle((1,0,2))
-
-    # lmhid=[]
-    #
-    # for i in range(shares):
-    #     lmhid.append(theano.clone(hiddenoutput, replace={inputx: lmy[i]}, strict=False))
-    #
-    # lmhidden=tensor.concatenate(lmhid, axis=0)
-    lmhidden=hiddenoutput
 
     emb = tparams['Wemb'][x.flatten()]
     emb = emb.reshape([n_timesteps, n_samples, options['dim_word']])
@@ -551,10 +522,7 @@ def build_model(tparams, options):
                                     prefix='ff_logit_prev', activ='linear')
     logit_ctx = get_layer('ff')[1](tparams, ctxs, options, 
                                     prefix='ff_logit_ctx', activ='linear')
-    logit_lm = get_layer('ff')[1](tparams, lmhidden, options,
-                                    prefix='ff_logit_ctx', activ='linear')
-
-    logit = tensor.tanh(logit_lstm+logit_prev+logit_ctx+ logit_lm)
+    logit = tensor.tanh(logit_lstm+logit_prev+logit_ctx)
     logit = get_layer('ff')[1](tparams, logit, options, 
                                prefix='ff_logit', activ='linear')
     logit_shp = logit.shape
@@ -568,7 +536,7 @@ def build_model(tparams, options):
     cost = cost.reshape([y.shape[0],y.shape[1]])
     cost = (cost * y_mask).sum(0)
 
-    return trng, use_noise, x, x_mask, y, y_mask, opt_ret, cost, lmmodel
+    return trng, use_noise, x, x_mask, y, y_mask, opt_ret, cost
 
 # build a sampler
 def build_sampler(tparams, options, trng):
@@ -618,7 +586,7 @@ def build_sampler(tparams, options, trng):
     logit_prev = get_layer('ff')[1](tparams, emb, options, 
                                     prefix='ff_logit_prev', activ='linear')
     logit_ctx = get_layer('ff')[1](tparams, ctxs, options, 
-                                    prefix='ff_logit_lm', activ='linear')
+                                    prefix='ff_logit_ctx', activ='linear')
     logit = tensor.tanh(logit_lstm+logit_prev+logit_ctx)
     logit = get_layer('ff')[1](tparams, logit, options, 
                                prefix='ff_logit', activ='linear')
@@ -846,21 +814,18 @@ def sgd(lr, tparams, grads, x, mask, y, cost):
 
 def train(dim_word=100, # word vector dimensionality
           dim=1000, # the number of LSTM units
-          lmdim=100, # the number of LSTM units for RNNLM
-          history_len=5,# rnnlm history_len
-          lmmodelpath='/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/lm/models/lstm_rnnlm2.gz', # rnnlm  model path
           encoder='gru',
           decoder='gru_cond',
           patience=10,
-          max_epochs=5000,
+          max_epochs=10,
           dispFreq=100,
           decay_c=0., 
           alpha_c=0., 
           diag_c=0.,
           clip_c=-1.,
           lrate=0.01, 
-          n_words_src=100000,
-          n_words=100000,
+          n_words_src=10000,
+          n_words=10000,
           maxlen=100, # maximum length of the description
           optimizer='rmsprop', 
           batch_size = 16,
@@ -869,12 +834,12 @@ def train(dim_word=100, # word vector dimensionality
           validFreq=1000,
           saveFreq=1000, # save the parameters after every saveFreq updates
           sampleFreq=100, # generate some samples after every sampleFreq updates
-          datasets=['/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/data/binarized_text.xinhua_u8.en.shuf.h5',
-                    '/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/data/binarized_text.xinhua_u8.ch.shuf.h5'],
-          valid_datasets=['/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/data/binarized_text.xinhua_u8.en.shuf.h5',
-                          '/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/data/binarized_text.xinhua_u8.ch.shuf.h5'],
-          dictionaries=['/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/data/vocab.xinhua_u8.en.pkl',
-                        '/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/data/vocab.xinhua_u8.ch.pkl'],
+          datasets=['/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/data/xinhua_u8.en',
+                    '/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/data/xinhua_u8.ch'],
+          valid_datasets=['/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/data/xinhua_u8.en',
+                          '/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/data/xinhua_u8.ch'],
+          dictionaries=['/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/data/vocab.english.pkl',
+                        '/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/data/vocab.chinese.pkl'],
           use_dropout=False,
           reload_=False):
 
@@ -918,10 +883,9 @@ def train(dim_word=100, # word vector dimensionality
     trng, use_noise, \
           x, x_mask, y, y_mask, \
           opt_ret, \
-          cost, lmmodel = \
+          cost = \
           build_model(tparams, model_options)
     inps = [x, x_mask, y, y_mask]
-    lmmodel.load_params(lmmodelpath)
 
     print 'Buliding sampler'
     f_init, f_next = build_sampler(tparams, model_options, trng)

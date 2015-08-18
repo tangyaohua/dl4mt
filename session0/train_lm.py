@@ -27,7 +27,7 @@ if __name__ == '__main__':
         'model': ['model.npz'],
         'dim_word': [256],
         'dim': [1024],
-        'n-words': [30000], 
+        'n-words': [10000],
         'optimizer': ['adam'],
         'decay-c': [0.], 
         'use-dropout': [False],
