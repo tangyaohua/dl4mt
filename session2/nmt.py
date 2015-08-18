@@ -272,8 +272,7 @@ def gru_layer(tparams, state_below, options, prefix='gru', mask=None, **kwargs):
                                                  tparams[_p(prefix, 'Ux')]],
                                 name=_p(prefix, '_layers'),
                                 n_steps=nsteps,
-                                profile=profile,
-                                strict=True)
+                                profile=profile)
     rval = [rval]
     return rval
 
@@ -419,8 +418,7 @@ def gru_cond_layer(tparams, state_below, options, prefix='gru',
                                                    context]+shared_vars,
                                     name=_p(prefix, '_layers'),
                                     n_steps=nsteps,
-                                    profile=profile,
-                                    strict=True)
+                                    profile=profile)
     return rval
 
 # initialize all parameters

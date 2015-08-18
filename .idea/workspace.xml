@@ -46,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nmt.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="nmt.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/session2/nmt.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="13464" max-vertical-offset="19602">
-              <caret line="836" column="72" selection-start-line="836" selection-start-column="20" selection-end-line="836" selection-end-column="72" />
+            <state vertical-scroll-proportion="0.7215054" vertical-offset="3955" max-vertical-offset="19566">
+              <caret line="274" column="47" selection-start-line="274" selection-start-column="47" selection-end-line="274" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -90,10 +90,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="utils.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/session2/lm/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.63870966" vertical-offset="0" max-vertical-offset="930">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="918">
               <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
               <folding>
                 <element signature="e#47#56#0" expanded="true" />
@@ -184,12 +184,12 @@
         <option value="$PROJECT_DIR$/nmtlv.py" />
         <option value="$PROJECT_DIR$/session2/preprocess.py" />
         <option value="$PROJECT_DIR$/session2/splitdata.py" />
-        <option value="$PROJECT_DIR$/session2/nmt.py" />
         <option value="$PROJECT_DIR$/session2/lm/lstm_rnnlm.py" />
         <option value="$PROJECT_DIR$/session2/lm/utils.py" />
         <option value="$PROJECT_DIR$/session2/nmtlv.py" />
         <option value="$PROJECT_DIR$/session2/data_iterator.py" />
         <option value="$PROJECT_DIR$/session2/train_nmt.py" />
+        <option value="$PROJECT_DIR$/session2/nmt.py" />
       </list>
     </option>
   </component>
@@ -991,14 +991,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/session2/nmt.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="14220" max-vertical-offset="19602">
-          <caret line="836" column="72" selection-start-line="836" selection-start-column="20" selection-end-line="836" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/session2/train_nmt.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="864">
@@ -1019,11 +1011,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/session2/lm/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63870966" vertical-offset="0" max-vertical-offset="930">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="918">
           <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
           <folding>
             <element signature="e#47#56#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/session2/nmt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7215054" vertical-offset="3955" max-vertical-offset="19566">
+          <caret line="274" column="47" selection-start-line="274" selection-start-column="47" selection-end-line="274" selection-end-column="47" />
+          <folding />
         </state>
       </provider>
     </entry>
