@@ -31,7 +31,7 @@ if __name__ == '__main__':
         'model': ['model.npz'],
         'dim_word': [384],
         'dim': [512],
-        'n-words': [10001],
+        'n-words': [30000],
         'optimizer': ['adam'],
         'decay-c': [0.], 
         'clip-c': [10.], 

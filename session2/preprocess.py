@@ -171,41 +171,6 @@ def create_dictionary():
     safe_pickle(vocab, args.dictionary)
     return combined_counter, sentence_counts, counters, vocab
 
-
-def binarize():
-    print args.char
-    binarized_corpora = []
-    for input_file, base_filename, sentence_count in \
-            zip(args.input, base_filenames, sentence_counts):
-        input_filename = os.path.basename(input_file.name)
-        logger.info("Binarizing %s." % (input_filename))
-        binarized_corpus = []
-        for sentence_count, sentence in enumerate(input_file):
-            binarized_sentence=[0]
-            if args.lowercase:
-                sentence = sentence.lower()
-            if args.char:
-                words = list(sentence.strip().decode('utf-8'))
-                print words
-            else:
-                words = sentence.strip().split(' ')
-            binarized_sentence = [vocab.get(word, 1) for word in words]
-            binarized_sentence.append(0)
-            binarized_corpus.append(binarized_sentence)
-        # endfor sentence in input_file
-        # Output
-        if args.each:
-            if args.pickle:
-                safe_pickle(binarized_corpus, base_filename + '.pkl')
-        binarized_corpora += binarized_corpus
-        input_file.seek(0)
-    # endfor input_file in args.input
-    f=open(args.binarized_text,'wb')
-    for sen in binarized_corpora:
-        f.write(' '.join(sen))
-    f.close()
-
-
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     logger = logging.getLogger('preprocess')

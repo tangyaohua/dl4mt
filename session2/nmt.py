@@ -834,12 +834,12 @@ def train(dim_word=100, # word vector dimensionality
           validFreq=1000,
           saveFreq=1000, # save the parameters after every saveFreq updates
           sampleFreq=100, # generate some samples after every sampleFreq updates
-          datasets=['/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/data/xinhua_u8.en',
-                    '/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/data/xinhua_u8.ch'],
-          valid_datasets=['/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/data/xinhua_u8.en',
-                          '/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/data/xinhua_u8.ch'],
-          dictionaries=['/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/data/vocab.english.pkl',
-                        '/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/data/vocab.chinese.pkl'],
+          datasets=['/home/tangyaohua/dl4mt/data/trainsrc',
+                    '/home/tangyaohua/dl4mt/data/traintrg'],
+          valid_datasets=['/home/tangyaohua/dl4mt/data/validsrc',
+                          '/home/tangyaohua/dl4mt/data/validtrg'],
+          dictionaries=['/home/tangyaohua/dl4mt/data/vocab.english.pkl',
+                        '/home/tangyaohua/dl4mt/data/vocab.chinese.pkl'],
           use_dropout=False,
           reload_=False):
 
