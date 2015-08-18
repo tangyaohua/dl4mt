@@ -1,0 +1,13 @@
+INFO:preprocess:Counting words in english
+INFO:preprocess:104906 unique words in 1548447 sentences with a total of 48152952 words.
+INFO:preprocess:Total: 104906 unique words in 1548447 sentences with a total of 48152952 words.
+INFO:preprocess:Creating dictionary of 30000 most common words, covering 99.6% of the text.
+INFO:preprocess:Saving to vocab.english.pkl.
+
+THEANO_FLAGS="on_unused_input=warn, floatX=float32, device=gpu0" python preprocess.py -d vocab.chinese.pkl -v 30000 -p /home/tangyaohua/dl4mt/data/larger.corpus/chinese
+INFO:preprocess:Counting words in chinese
+INFO:preprocess:109442 unique words in 1548447 sentences with a total of 41933964 words.
+INFO:preprocess:Total: 109442 unique words in 1548447 sentences with a total of 41933964 words.
+INFO:preprocess:Creating dictionary of 30000 most common words, covering 99.4% of the text.
+WARNING:preprocess:Not saving vocab.chinese.pkl, already exists.
+

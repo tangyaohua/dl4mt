@@ -2,7 +2,7 @@ import numpy
 
 # from nmt import train
 # from nmtlm import train
-from nmtrlm import train
+from nmtlv import train
 
 def main(job_id, params):
     print params
@@ -31,7 +31,7 @@ if __name__ == '__main__':
         'model': ['model.npz'],
         'dim_word': [384],
         'dim': [512],
-        'n-words': [30000],
+        'n-words': [10000],
         'optimizer': ['adam'],
         'decay-c': [0.], 
         'clip-c': [10.], 

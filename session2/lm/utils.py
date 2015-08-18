@@ -13,7 +13,8 @@ import cPickle as pkl
 
 logging.basicConfig(level=logging.INFO)
 
-resource_dir = os.path.abspath(os.path.dirname(__file__)) + os.sep + "resources"
+# resource_dir = os.path.abspath(os.path.dirname(__file__)) + os.sep + "resources"
+resource_dir = '/home/tangyaohua/dl4mt/data/larger.corpus/'
 
 def load_data(small=True, char_based=False, batch_size=20, vocab_size=10000, history_len=5, max_tokens=50, null_mark=False):
     vocab_path = os.path.join(resource_dir, "ptb.train.txt")
@@ -34,9 +35,9 @@ def load_datagivendict(dictpath, small=True, char_based=False, batch_size=20, vo
     with open(dictpath, 'rb') as f:
             vocab = pkl.load(f)
 
-    valid_path = os.path.join(resource_dir, "ptb.valid.txt")
+    valid_path = os.path.join(resource_dir, "validtrg")
     if small:
-        train_path = os.path.join(resource_dir, "ptb.train.10k.txt")
+        train_path = os.path.join(resource_dir, "validtrain")
     else:
         train_path = os.path.join(resource_dir, "ptb.train.txt")
 

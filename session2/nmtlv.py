@@ -813,7 +813,7 @@ def sgd(lr, tparams, grads, x, mask, y, cost):
 
 def train(dim_word=100, # word vector dimensionality
           dim=1000, # the number of LSTM units
-          tau=10000,
+          tau=1000,
           encoder='gru',
           decoder='gru_cond',
           patience=10,

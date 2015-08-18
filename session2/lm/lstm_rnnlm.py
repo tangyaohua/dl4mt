@@ -14,8 +14,8 @@ import theano.tensor as T
 
 logging.basicConfig(level=logging.INFO)
 
-default_model = os.path.join(os.path.dirname(__file__), "models", "lstm_rnnlm2.gz")
-default_dict  = os.path.join(os.path.dirname(__file__), "resources", "vocab.xinhua_u8.en.pkl")
+default_model = os.path.join(os.path.dirname(__file__), "models", "lstm_rnnlmnew.gz")
+default_dict  = '/home/tangyaohua/dl4mt/data/larger.corpus/vocab.chinese.pkl'
 
 if __name__ == '__main__':
     ap = ArgumentParser()
@@ -26,6 +26,7 @@ if __name__ == '__main__':
 
     vocab, lmdata = load_datagivendict(dictpath=args.dictpath, small=args.small, history_len=5, batch_size=16)
     inputx=T.imatrix('x')
+    print len(vocab), 'len(vocab)'
     model = NeuralLM(len(vocab), test_data=None, input_tensor=inputx)
     model.stack(LSTM(hidden_size=100, output_type="sequence",
                     persistent_state=True, batch_size=lmdata.size,
