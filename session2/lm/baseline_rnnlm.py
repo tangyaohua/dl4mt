@@ -300,7 +300,7 @@ if __name__ == '__main__':
        [1899,  268,  412,  266,   29]]])
     print b.shape
 
-    # trainer.run(lmdata, controllers=[annealer])
+    trainer.run(lmdata, controllers=[annealer])
     # trainer.hidout(a)
-    trainer.hidout(c)
-    # model.save_params(default_model)
+    # trainer.hidout(c)
+    model.save_params(default_model)

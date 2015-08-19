@@ -36,7 +36,7 @@ def load_datagivendict(dictpath, small=True, char_based=False, batch_size=20, vo
     with open(dictpath, 'rb') as f:
             vocab = pkl.load(f)
 
-    valid_path = os.path.join(resource_dir, "testtrg")
+    valid_path = os.path.join(resource_dir, "validtrg")
     if small:
         train_path = os.path.join(resource_dir, "traintrg")
     else:
