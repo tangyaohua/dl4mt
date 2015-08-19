@@ -11,7 +11,7 @@ def split(basepath, srcfile, trgfile, trainport, validport):
     validsrc=open(basepath+'validsrc', 'wb')
     validtrg=open(basepath+'validtrg', 'wb')
     testsrc=open(basepath+'testsrc', 'wb')
-    testtrg=open(basepath+'testsrc', 'wb')
+    testtrg=open(basepath+'testtrg', 'wb')
 
     traincnt = xrange(int(totalsents*trainport))
     validcnt = xrange(int(totalsents*trainport), int(totalsents*(trainport+validport)))

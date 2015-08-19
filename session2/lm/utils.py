@@ -14,7 +14,7 @@ import cPickle as pkl
 logging.basicConfig(level=logging.INFO)
 
 # resource_dir = os.path.abspath(os.path.dirname(__file__)) + os.sep + "resources"
-resource_dir = '/home/tangyaohua/mt/dl4mt/data/larger.corpus/'
+resource_dir = '/home/tangyaohua/dl4mt/data/larger.corpus/'
 
 def load_data(small=True, char_based=False, batch_size=20, vocab_size=10000, history_len=5, max_tokens=50, null_mark=False):
     vocab_path = os.path.join(resource_dir, "ptb.train.txt")
