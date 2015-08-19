@@ -48,21 +48,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="train_nmt.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="train_nmt.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/session2/train_nmt.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="864">
-              <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.7354839" vertical-offset="0" max-vertical-offset="930">
+              <caret line="38" column="34" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="preprocess.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="preprocess.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/session2/preprocess.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.61935484" vertical-offset="2214" max-vertical-offset="3150">
-              <caret line="167" column="32" selection-start-line="167" selection-start-column="32" selection-end-line="167" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2214" max-vertical-offset="3150">
+              <caret line="155" column="27" selection-start-line="155" selection-start-column="27" selection-end-line="155" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -72,7 +72,7 @@
         <entry file="file://$PROJECT_DIR$/session2/nmt.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="14323" max-vertical-offset="19566">
-              <caret line="274" column="47" selection-start-line="274" selection-start-column="47" selection-end-line="274" selection-end-column="47" />
+              <caret line="839" column="87" selection-start-line="839" selection-start-column="87" selection-end-line="839" selection-end-column="87" />
               <folding />
             </state>
           </provider>
@@ -180,7 +180,6 @@
         <option value="$PROJECT_DIR$/data_iteratorlr.py" />
         <option value="$PROJECT_DIR$/nmtlv.py" />
         <option value="$PROJECT_DIR$/session2/nmtlv.py" />
-        <option value="$PROJECT_DIR$/session2/train_nmt.py" />
         <option value="$PROJECT_DIR$/session2/nmt.py" />
         <option value="$PROJECT_DIR$/session2/splitdata.py" />
         <option value="$PROJECT_DIR$/session2/lm/lstm_rnnlm.py" />
@@ -188,6 +187,7 @@
         <option value="$PROJECT_DIR$/session2/data_iteratorlr.py" />
         <option value="$PROJECT_DIR$/session2/data_iterator.py" />
         <option value="$PROJECT_DIR$/session2/preprocess.py" />
+        <option value="$PROJECT_DIR$/session2/train_nmt.py" />
       </list>
     </option>
   </component>
@@ -922,7 +922,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="9266" max-vertical-offset="20124">
           <caret line="536" column="33" selection-start-line="536" selection-start-column="33" selection-end-line="536" selection-end-column="33" />
           <folding>
-            <element signature="e#56#69#0" expanded="true" />
+            <element signature="e#56#69#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -931,14 +931,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="1386">
           <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/session2/train_nmt.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="864">
-          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -1007,18 +999,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/session2/nmt.py">
+    <entry file="file://$PROJECT_DIR$/session2/preprocess.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="14323" max-vertical-offset="19566">
-          <caret line="274" column="47" selection-start-line="274" selection-start-column="47" selection-end-line="274" selection-end-column="47" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2214" max-vertical-offset="3150">
+          <caret line="155" column="27" selection-start-line="155" selection-start-column="27" selection-end-line="155" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/session2/preprocess.py">
+    <entry file="file://$PROJECT_DIR$/session2/nmt.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.61935484" vertical-offset="2214" max-vertical-offset="3150">
-          <caret line="167" column="32" selection-start-line="167" selection-start-column="32" selection-end-line="167" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="14323" max-vertical-offset="19566">
+          <caret line="839" column="87" selection-start-line="839" selection-start-column="87" selection-end-line="839" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/session2/train_nmt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7354839" vertical-offset="0" max-vertical-offset="930">
+          <caret line="38" column="34" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
           <folding />
         </state>
       </provider>
