@@ -15,6 +15,7 @@ logging.basicConfig(level=logging.INFO)
 
 # resource_dir = os.path.abspath(os.path.dirname(__file__)) + os.sep + "resources"
 resource_dir = '/home/tangyaohua/dl4mt/data/larger.corpus/'
+# resource_dir = '/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/lm/resources/'
 
 def load_data(small=True, char_based=False, batch_size=20, vocab_size=10000, history_len=5, max_tokens=50, null_mark=False):
     vocab_path = os.path.join(resource_dir, "ptb.train.txt")
@@ -35,7 +36,7 @@ def load_datagivendict(dictpath, small=True, char_based=False, batch_size=20, vo
     with open(dictpath, 'rb') as f:
             vocab = pkl.load(f)
 
-    valid_path = os.path.join(resource_dir, "validtrg")
+    valid_path = os.path.join(resource_dir, "testtrg")
     if small:
         train_path = os.path.join(resource_dir, "traintrg")
     else:

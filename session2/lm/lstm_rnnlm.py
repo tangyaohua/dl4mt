@@ -16,6 +16,7 @@ logging.basicConfig(level=logging.INFO)
 
 default_model = os.path.join(os.path.dirname(__file__), "models", "lstm_rnnlmnew.gz")
 default_dict  = '/home/tangyaohua/dl4mt/data/larger.corpus/vocab.chinese.pkl'
+# default_dict = '/home/tangyh/Dropbox/PycharmProjects/dl4mt/session2/lm/resources/vocab.chinese.pkl'
 
 if __name__ == '__main__':
     ap = ArgumentParser()
